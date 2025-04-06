@@ -146,7 +146,7 @@ sd_betas = hessian_sd[4:6]
 
 format(2*(1- pnorm( abs(parametros_reg$par[4:6])/sd_betas ) ),scientific = FALSE)
 
-# randomized quantile residuals
+# randomized quantile residuals 
 
 r_is = Fy_r(parameters_reg)
 r_is = qnorm(r_is)
@@ -156,7 +156,7 @@ chek_ris = data.frame(values = r_is)
 ggplot(chek_ris, aes(sample = values)) +
   stat_qq_band(distribution = "norm", alpha = 0, color = "black", linetype = "solid") + 
   stat_qq_line(distribution = "norm", color = "red", linetype = "dashed", size = 0.5) + 
-  stat_qq_point(distribution = "norm", shape = 1, size = 2) + # Puntos
+  stat_qq_point(distribution = "norm", shape = 1, size = 2) + 
   labs(title = "CEMBKGLn",
        y = "ri", x = "Normal Quantiles") +
   theme_minimal()
@@ -184,7 +184,7 @@ r_is_UBS = data.frame(values = residuals( fits[[1]], type = c("quantile") ))
 ggplot(r_is_UBS, aes(sample = values)) +
   stat_qq_band(distribution = "norm", alpha = 0, color = "black", linetype = "solid") + 
   stat_qq_line(distribution = "norm", color = "red", linetype = "dashed", size = 0.5) + 
-  stat_qq_point(distribution = "norm", shape = 1, size = 2) + # Puntos
+  stat_qq_point(distribution = "norm", shape = 1, size = 2) + 
   labs(title = "UBS",
        y = "ri", x = "Normal Quantiles") +
   theme_minimal()
@@ -210,7 +210,7 @@ r_is_KW = data.frame(values = residuals( fit_kum, type = c("quantile") ))
 ggplot(r_is_KW, aes(sample = values)) +
   stat_qq_band(distribution = "norm", alpha = 0, color = "black", linetype = "solid") + 
   stat_qq_line(distribution = "norm", color = "red", linetype = "dashed", size = 0.5) + 
-  stat_qq_point(distribution = "norm", shape = 1, size = 2) + # Puntos
+  stat_qq_point(distribution = "norm", shape = 1, size = 2) + 
   labs(title = "KM",
        y = "ri", x = "Normal Quantiles") +
   theme_minimal()
@@ -237,7 +237,7 @@ r_is_SB = data.frame(values = residuals( fit_sb, type = c("quantile") ))
 ggplot(r_is_SB, aes(sample = values)) +
   stat_qq_band(distribution = "norm", alpha = 0, color = "black", linetype = "solid") + 
   stat_qq_line(distribution = "norm", color = "red", linetype = "dashed", size = 0.5) + 
-  stat_qq_point(distribution = "norm", shape = 1, size = 2) + # Puntos
+  stat_qq_point(distribution = "norm", shape = 1, size = 2) + 
   labs(title = "Johnson S_b",
        y = "ri", x = "Normal Quantiles") +
   theme_minimal()
@@ -276,7 +276,7 @@ t3 = sum_num3/sqrt(w3)
 2*(1-pnorm(t3))
 
 
-### Example to corroborate the calculations
+### Example
 
 num = (1/sqrt( length(y)) ) * sum(  log(values_km/values_sb )  )
 den = (sum( ( log(values_km/values_sb  ) )^2   )/73) - (  (1/73) * sum(  log(values_km/values_sb  )  )  )^2
